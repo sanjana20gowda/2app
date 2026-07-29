@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import plotly.express as px
 import plotly.graph_objects as go
-
+import zipfile
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -137,11 +137,17 @@ st.title("🚚 Machine Learning–based Late Delivery Risk Prediction")
 st.markdown("### APL Logistics (KWE Group)")
 model = joblib.load("best_model.pkl")
 scaler = joblib.load("scaler.pkl")
-df = pd.read_csv(
-    "data/APL_Logistics.csv",
-    encoding="latin1"
-)
-feature_df = pd.read_csv("model_features.csv")
+# Read APL_Logistics.zip
+with zipfile.ZipFile("APL_Logistics.zip", "r") as zip_ref:
+    csv_name = zip_ref.namelist()[0]   # First file inside the ZIP
+    with zip_ref.open(csv_name) as f:
+        df = pd.read_csv(f, encoding="latin1")
+
+# Read Clean_APL_Logistics.zip
+with zipfile.ZipFile("Clean_APL_Logistics.zip", "r") as zip_ref:
+    csv_name = zip_ref.namelist()[0]
+    with zip_ref.open(csv_name) as f:
+        feature_df = pd.read_csv(f)
 st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 
