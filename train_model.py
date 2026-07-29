@@ -158,9 +158,9 @@ print("Accuracy:", accuracy)
 
 import joblib
 
-joblib.dump(model, "models/best_model.pkl", compress=3)
-joblib.dump(scaler, "models/scaler.pkl")
-joblib.dump(label_encoders, "models/label_encoders.pkl")
+joblib.dump(model, "best_model.pkl", compress=3)
+joblib.dump(scaler, "scaler.pkl")
+joblib.dump(label_encoders, "label_encoders.pkl")
 
 X.to_csv("data/model_features.csv", index=False)
 
