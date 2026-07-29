@@ -1,9 +1,0 @@
-import pandas as pd
-
-df = pd.read_csv("model_features.csv")
-
-sample = df.head(1000)
-
-sample.to_csv("sample_model_features.csv", index=False)
-
-print("Done!")
