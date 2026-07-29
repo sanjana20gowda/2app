@@ -135,13 +135,13 @@ if not st.session_state.logged_in:
     st.stop()
 st.title("🚚 Machine Learning–based Late Delivery Risk Prediction")
 st.markdown("### APL Logistics (KWE Group)")
-model = joblib.load("models/best_model.pkl")
-scaler = joblib.load("models/scaler.pkl")
+model = joblib.load("best_model.pkl")
+scaler = joblib.load("scaler.pkl")
 df = pd.read_csv(
     "data/APL_Logistics.csv",
     encoding="latin1"
 )
-feature_df = pd.read_csv("data/model_features.csv")
+feature_df = pd.read_csv("model_features.csv")
 st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 
