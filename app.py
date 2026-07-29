@@ -140,7 +140,7 @@ scaler = joblib.load("scaler.pkl")
 label_encoders = joblib.load("label_encoders.pkl")
 
 df = pd.read_csv("sample_Clean_APL_Logistics.csv", encoding="latin1")
-feature_df = pd.read_csv("model_features.csv")
+feature_df = pd.read_csv("sample_model_features.csv")
 st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 
