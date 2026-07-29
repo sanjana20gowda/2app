@@ -1,0 +1,12 @@
+import pandas as pd
+
+# Read the original model features file
+df = pd.read_csv("data/model_features.csv")
+
+# Take 1000 random rows
+sample_df = df.sample(n=1000, random_state=42)
+
+# Save the sample
+sample_df.to_csv("sample_model_features.csv", index=False)
+
+print("sample_model_features.csv created successfully!")
