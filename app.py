@@ -137,17 +137,10 @@ st.title("🚚 Machine Learning–based Late Delivery Risk Prediction")
 st.markdown("### APL Logistics (KWE Group)")
 model = joblib.load("best_model.pkl")
 scaler = joblib.load("scaler.pkl")
-# Read APL_Logistics.zip
-with zipfile.ZipFile("APL_Logistics.zip", "r") as zip_ref:
-    csv_name = zip_ref.namelist()[0]   # First file inside the ZIP
-    with zip_ref.open(csv_name) as f:
-        df = pd.read_csv(f, encoding="latin1")
+label_encoders = joblib.load("label_encoders.pkl")
 
-# Read Clean_APL_Logistics.zip
-with zipfile.ZipFile("Clean_APL_Logistics.zip", "r") as zip_ref:
-    csv_name = zip_ref.namelist()[0]
-    with zip_ref.open(csv_name) as f:
-        feature_df = pd.read_csv(f)
+df = pd.read_csv("APL_Logistics.csv", encoding="latin1")
+feature_df = pd.read_csv("model_features.csv")
 st.sidebar.title("Navigation")
 st.sidebar.markdown("---")
 
